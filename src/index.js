@@ -37,7 +37,7 @@ const fetchData = async (id) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve({ id, data: `Data for ID ${id}` });
-        }, 2000); // Simulates a delay
+        }, 2000); 
     });
 };
 
