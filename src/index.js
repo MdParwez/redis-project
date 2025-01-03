@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const Redis = require('ioredis');
 
 const app = express();
-const redis = new Redis(); // Connect to Redis at default localhost:6379
+const redis = new Redis(); 
 
 // Middleware
 app.use(bodyParser.json());
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const rateLimiter = async (req, res, next) => {
     const userIP = req.ip;
     const maxRequests = 5;
-    const timeWindow = 60; // seconds
+    const timeWindow = 60; 
 
     try {
         const currentRequests = await redis.incr(userIP);
@@ -75,7 +75,7 @@ app.post('/notify', async (req, res) => {
     }
 });
 
-// Start the server
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
